@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "airbnb"
-    ]
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    }
 }
