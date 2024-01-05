@@ -5,7 +5,11 @@ import { Logger } from 'nestjs-pino';
 
 async function bootstrap() {
   const app = await NestFactory.create(ReservationsModule);
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // ignore extra fields which are not on dto
+    }),
+  );
 
   app.useLogger(app.get(Logger));
   await app.listen(3000);
